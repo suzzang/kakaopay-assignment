@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="suzzang.assignment.com.kakaopayassignment">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:name=".api.ApplicationController"
@@ -12,10 +11,11 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name="suzzang.assignment.com.kakaopayassignment.mvp.view.PracticeSearchActivity">
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
+        <activity android:name=".mvp.view.ImageDetailActivity">
         </activity>
-        <activity android:name="suzzang.assignment.com.kakaopayassignment.mvp.view.ImageSearchActivity">
+        <activity android:name=".mvp.view.ImageSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

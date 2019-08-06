@@ -7,34 +7,41 @@
         android:layout_height="match_parent"
         tools:context=".mvp.view.ImageSearchActivity">
     <LinearLayout
-            android:layout_marginTop="15dp"
+
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
 
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        <RelativeLayout
+                android:layout_width="250dp"
+                android:layout_height="63dp"
+                android:background="@drawable/search_bar">
             <EditText
                     android:id="@+id/et_image_search"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"/>
-            <Button
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/btn_image_search"
+                    android:layout_width="190dp"
+                    android:layout_height="35dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    android:background="@android:color/transparent"/>
+            <ImageView
                     android:id="@+id/btn_image_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="검색"/>
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/search_icon"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcv_image_search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="9dp"
         >
         </android.support.v7.widget.RecyclerView>
 

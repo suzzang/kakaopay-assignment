@@ -14,8 +14,7 @@ class ApplicationController : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        instance = this //어느 액티비티에서든지 '나'를 할당 할 수 있도록!! instance에 this를 넣어준다!
+        instance = this
 
         buildNetwork()
     }

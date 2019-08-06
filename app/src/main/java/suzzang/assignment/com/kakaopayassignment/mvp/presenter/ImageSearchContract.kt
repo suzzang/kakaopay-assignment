@@ -18,5 +18,7 @@ interface ImageSearchContract {
         //api 통신을 통해 검색결과에 따른 이미지데이터들 가져오기
         fun getSearchList(keyword : String,flag:Int)
 
+
+
     }
 }
