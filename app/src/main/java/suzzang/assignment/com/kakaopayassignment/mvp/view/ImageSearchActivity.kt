@@ -34,7 +34,7 @@ class ImageSearchActivity : BaseActivity(), ImageSearchContract.View, ImageSearc
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(suzzang.assignment.com.kakaopayassignment.R.layout.activity_image_search)
+        setContentView(R.layout.activity_image_search)
 
 
         filter_group.setOnCheckedChangeListener { group, checkedId ->

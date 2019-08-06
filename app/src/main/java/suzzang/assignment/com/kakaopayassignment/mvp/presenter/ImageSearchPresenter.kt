@@ -1,21 +1,10 @@
 package suzzang.assignment.com.kakaopayassignment.mvp.presenter
 
-import android.app.Activity
-import android.os.AsyncTask
-import android.util.Log
-import android.widget.TextView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_image_detail.*
-import org.jsoup.Jsoup
 import suzzang.assignment.com.kakaopayassignment.api.ApplicationController
 import suzzang.assignment.com.kakaopayassignment.api.NetworkService
-import suzzang.assignment.com.kakaopayassignment.mvp.model.Images
-import suzzang.assignment.com.kakaopayassignment.mvp.model.ImagesResponse
-import java.io.IOException
-import java.lang.System.err
-
 
 class ImageSearchPresenter : ImageSearchContract.Presenter {
 
