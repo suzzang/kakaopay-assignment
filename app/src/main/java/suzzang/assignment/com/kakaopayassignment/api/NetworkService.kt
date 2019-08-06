@@ -10,6 +10,7 @@ interface NetworkService {
     @GET("/v2/search/image")
     fun getImgList(@Header("Authorization")header:String,
                    @Query("query") keyword: String,
-                   @Query("page") page:Int): Observable<ImagesResponse>
+                   @Query("page") page:Int,
+                   @Query("sort") sort:String): Observable<ImagesResponse>
 
 }

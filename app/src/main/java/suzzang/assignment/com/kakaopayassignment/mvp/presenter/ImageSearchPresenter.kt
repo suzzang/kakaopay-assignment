@@ -47,22 +47,23 @@ class ImageSearchPresenter : ImageSearchContract.Presenter {
         this.view = view
     }
 
-    override fun getSearchList(keyword: String,flag:Int) {
+    override fun getSearchList(keyword: String,flag:Int,sort:String) {
         if(flag == 0){ //첫요청
             page = 1
             isFirstflag = 0
 
-            disposable.add(networkService.getImgList(header, keyword, page)
+            disposable.add(networkService.getImgList(header, keyword, page,sort)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { imagesResponse -> view.showSearchList(imagesResponse.documents,imagesResponse.meta.is_end) }
+                .subscribe ({imagesResponse -> view.showSearchList(imagesResponse.documents,imagesResponse.meta.is_end) },
+                    {err->view.showError(err.message.toString())})
             )
         }else{ //그 후 요청
             page += 1
-            disposable.add(networkService.getImgList(header, keyword, page)
+            disposable.add(networkService.getImgList(header, keyword, page,sort)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { imagesResponse ->
+                .subscribe ({imagesResponse ->
                     if(imagesResponse.meta.is_end && isFirstflag == 0){
                         view.showSearchList(imagesResponse.documents,imagesResponse.meta.is_end)
                         isFirstflag = 1
@@ -70,7 +71,7 @@ class ImageSearchPresenter : ImageSearchContract.Presenter {
                     }else if(!(imagesResponse.meta.is_end) && isFirstflag == 0){
                         view.showSearchList(imagesResponse.documents,imagesResponse.meta.is_end)
                     }
-                }
+                },{err-> view.showError(err.message.toString())})
             )
 
         }

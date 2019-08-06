@@ -68,6 +68,17 @@ class ImageDetailActivity : AppCompatActivity(){
         datetime = datetime.replace("-",".")
         tv_datetime.text = datetime
 
+        //이미지저장버튼 눌렀을때 해당 이미지 url을 이용해 새 activty 호출
+        btn_img_save.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imgList[position].image_url))
+            startActivity(intent)
+        }
+        //이미지타이틀을 눌렀을때 해당 이미지의 doc_url을 이용해 새 activty 호출
+        title_image.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(imgList[position].doc_url))
+            startActivity(intent)
+        }
+
 
     }
     //뷰페이저 초기화

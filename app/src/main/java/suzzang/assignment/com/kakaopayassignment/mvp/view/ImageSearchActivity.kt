@@ -15,6 +15,8 @@ import suzzang.assignment.com.kakaopayassignment.mvp.presenter.ImageSearchPresen
 import kotlin.collections.ArrayList
 import android.content.Intent
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import suzzang.assignment.com.kakaopayassignment.R
 
 
 class ImageSearchActivity : BaseActivity(), ImageSearchContract.View, ImageSearchAdapter.OnItemClickListener {
@@ -28,13 +30,29 @@ class ImageSearchActivity : BaseActivity(), ImageSearchContract.View, ImageSearc
     lateinit var keyword : String
 
     var isEnd = false
+    var isBtnClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(suzzang.assignment.com.kakaopayassignment.R.layout.activity_image_search)
 
 
+        filter_group.setOnCheckedChangeListener { group, checkedId ->
+            if(checkedId == R.id.btn_accuracy){
+                if(isBtnClicked){
+                    setSearching(0)
+                }
+
+            }else{
+                if(isBtnClicked){
+                    setSearching(0)
+                }
+            }
+            setAdapter()
+        }
+
         btn_image_search.setOnClickListener{
+            isBtnClicked = true
 
             keyword = et_image_search.text.toString()
 
@@ -65,7 +83,13 @@ class ImageSearchActivity : BaseActivity(), ImageSearchContract.View, ImageSearc
     }
 
     private fun setSearching(flag:Int){
-        imageSearchPresenter.getSearchList(keyword,flag)
+        var sort = "accuracy"
+        if(btn_accuracy.isChecked){
+            sort = "accuracy"
+        }else{
+            sort = "recency"
+        }
+        imageSearchPresenter.getSearchList(keyword,flag,sort)
 
     }
     private fun pagination(){
@@ -131,6 +155,8 @@ class ImageSearchActivity : BaseActivity(), ImageSearchContract.View, ImageSearc
     }
 
     override fun showError(error: String) {
+        isBtnClicked = false
+        Toast.makeText(this,"검색어를 입력해주세요!",Toast.LENGTH_SHORT).show()
         Log.e("ERROR",error)
     }
 }
