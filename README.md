@@ -22,7 +22,7 @@
 
 ![firstR](https://user-images.githubusercontent.com/24809669/62591677-539ba980-b90b-11e9-8ab0-a61f52c2027a.png)
 
-- 이미지검색 & 필터기능 & 썸네일을 눌렀을때 디테일 화면(GIF이미지, 고정이미지) - 스와이프를 통해 디테일화면 이동 가능
+- 이미지검색(스크롤시 자동 페이징) & 필터기능 & 썸네일을 눌렀을때 디테일 화면(GIF이미지, 고정이미지) - 좌우 스와이프를 통해 이동 가능
 
 ![secondR](https://user-images.githubusercontent.com/24809669/62592169-23eda100-b90d-11e9-8a75-fa7cb9cc9a13.png)
 
