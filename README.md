@@ -1,6 +1,6 @@
 # KaKaoPay-Assignment
 
-2019 카카오페이 클라이언트 인턴십 - 카카오 이미지검색API 이용하기
+2019 카카오페이 클라이언트 인턴십 사전과제 - 카카오 이미지검색API 이용하기
 
 ## Component and Library
 
